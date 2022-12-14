@@ -1,3 +1,4 @@
+import MainDisplay from "./components/feeds/MainDisplay";
 import SlideBar from "./components/feeds/SlideBar";
 import Header from "./components/header/Header";
 
@@ -7,6 +8,7 @@ function App() {
       <Header />
       <main>
       <SlideBar />
+      <MainDisplay />
       </main>
     </>
   );
