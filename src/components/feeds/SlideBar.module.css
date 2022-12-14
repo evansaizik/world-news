@@ -5,7 +5,8 @@
 }
 .slider {
   display: flex;
-  overflow-x: hidden;
+  max-height: 40px;
+  overflow: hidden;
 }
 
 .item-1 {
@@ -40,7 +41,8 @@
   margin: 8px 3px 8px 0px;
 }
 
-.item-2 span {
-  display: inline-block;
+.item-2 .title {
+  display: flex;
+  width: 400px;
   margin: 12px 1px 10px 1px;
 }
