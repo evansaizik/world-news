@@ -1,0 +1,46 @@
+ .container {
+  display: flex;
+  background-color: black;
+  height: 40px;
+}
+.slider {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.item-1 {
+  min-width: 120px;
+  color: aliceblue;
+  background-color: rgb(182, 147, 215);
+  padding: 10px 10px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.item-2 {
+  display: flex;
+  color: aliceblue;
+  font-size: .8rem;
+  font-weight: 500;
+  padding-right: 20px;
+  animation: slide infinite 20s;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(170%);
+  }
+
+  to {
+    transform: translateX(-1000%);
+  }
+}
+
+.item-2 img {
+  width: 25px;
+  margin: 8px 3px 8px 0px;
+}
+
+.item-2 span {
+  display: inline-block;
+  margin: 12px 1px 10px 1px;
+}

@@ -12,3 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 62.5%;
 }
+
+main {
+  margin: 0 30px;
+}
