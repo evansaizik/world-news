@@ -6,7 +6,6 @@ const Category = () => {
   return <form className={classes.form}>
     <label htmlFor='input' />
     <input id='input'/>
-    {/* <button><img src={icon} width='20px' alt='search_icon' /></button> */}
     <button>
       <img src={icon} width='30px' alt='SVG as a button' />
     </button>
