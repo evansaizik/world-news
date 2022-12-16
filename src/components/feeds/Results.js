@@ -30,6 +30,11 @@ const Results = () => {
         <p>Argentina proceeds to the final in the world cup competition</p>
       </li>
     </ul>
+    <div className={classes.pagination}>
+      <button className={classes['btn-1']}>Page 1</button>
+      <button className={classes['btn-2']}>Page 3</button>
+      <span>Page 2</span>
+    </div>
   </section>
 };
 

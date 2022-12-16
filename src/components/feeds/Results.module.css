@@ -44,3 +44,33 @@
   color: rgb(101, 98, 98);
   padding: 5px 5px;
 }
+
+.pagination {
+  margin: 20px auto;
+  position: relative;
+  width: 300px;
+}
+
+.pagination .btn-1, .pagination .btn-2 {
+  background-color: rgb(182, 147, 215);
+  color: aliceblue;
+  border: none;
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  font-size: .9rem;
+}
+
+.pagination .btn-2 {
+  position: absolute;
+  right: 0;
+}
+
+.pagination span {
+  position: absolute;
+  left: 45%;
+  top: 5px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: rgb(182, 147, 215);;
+}
