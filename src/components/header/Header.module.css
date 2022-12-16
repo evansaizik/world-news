@@ -19,7 +19,7 @@
 }
 
 .title::after {
-  content: 'Feed';
+  content: 'News';
   color: rgb(182, 147, 215);
 }
 

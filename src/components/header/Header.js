@@ -11,7 +11,7 @@ const Header = () => {
         <span className={`${classes.slider} ${classes.round}`} ></span>
       </label>
     </header>
-    <h1 className={classes.title}>News</h1>
+    <h1 className={classes.title}>Civil</h1>
   </>
 };
 
