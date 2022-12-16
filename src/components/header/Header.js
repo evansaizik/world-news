@@ -6,6 +6,10 @@ const Header = () => {
       <span>Home</span>
       <span>About</span>
       <span>Contact</span>
+      <label className={classes.switch}>
+        <input type='checkbox' />
+        <span className={`${classes.slider} ${classes.round}`} ></span>
+      </label>
     </header>
     <h1 className={classes.title}>News</h1>
   </>

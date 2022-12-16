@@ -7,7 +7,6 @@
 .slider {
   display: flex;
   max-height: 40px;
-  /* overflow: scroll; */
   animation: slide infinite ease-in 20s;
 }
 
