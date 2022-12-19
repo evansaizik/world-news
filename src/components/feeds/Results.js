@@ -1,13 +1,26 @@
 import classes from './Results.module.css';
 import photo from '../Assets/featured_img3.jpg';
 import Category from '../category/Category';
+import { useDispatch, useSelector } from 'react-redux';
+import { paginationActions } from '../../store/store';
 
-const Results = () => {
+const Results = props => {
+  const pageNumber = useSelector(state => state.currentPage)
+
+  const dispatch = useDispatch()
+
+  const nextPageHandler = () => {
+    dispatch(paginationActions.nextPage())
+  }
+  const prevPageHandler = () => {
+    dispatch(paginationActions.prevPage())
+  }
+
   return <section className={classes.results}>
     <div className={classes.titleBar}>
       <h2>latest post</h2>
     </div>
-    <Category />
+    <Category onClick={props.onClick} />
     <ul className={classes.search}>
       <li>
         <img className={classes.searchImage} src={photo} alt='styles' />
@@ -31,9 +44,9 @@ const Results = () => {
       </li>
     </ul>
     <div className={classes.pagination}>
-      <button className={classes['btn-1']}>Page 1</button>
-      <button className={classes['btn-2']}>Page 3</button>
-      <span>Page 2</span>
+      <button onClick={nextPageHandler} className={classes['btn-1']}>{`Page ${pageNumber - 1}`}</button>
+      <button onClick={prevPageHandler} className={classes['btn-2']}>{`Page ${pageNumber + 1}`}</button>
+      <span>{`Page ${pageNumber}`}</span>
     </div>
   </section>
 };

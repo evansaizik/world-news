@@ -7,7 +7,7 @@
 .slider {
   display: flex;
   max-height: 40px;
-  animation: slide infinite ease-in 20s;
+  animation: slide infinite ease-in 120s;
 }
 
 .item-1 {
@@ -24,22 +24,22 @@
   color: aliceblue;
   font-size: .8rem;
   font-weight: 500;
-  padding-right: 20px;
+  padding-right: 40px;
 }
 
 @keyframes slide {
   from {
-    transform: translateX(100%);
+    transform: translateX(11%);
   }
 
   to {
-    transform: translateX(-120%);
+    transform: translateX(-100%);
   }
 }
 
 .item-2 img {
   width: 25px;
-  margin: 8px 3px 8px 0px;
+  margin: 8px 8px 8px 0px;
 }
 
 .item-2 .title {
