@@ -9,7 +9,6 @@ const SlideBar = props => {
       image: data.imageUrl,
     }
   });
-  console.log(headlines)
 
   return <div className={classes.container}>
     <div className={classes['item-1']}>

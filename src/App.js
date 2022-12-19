@@ -10,15 +10,16 @@ import Header from "./components/header/Header";
 
 function App() {
   const [newsData, getNewsData] = useState([]);
+  const [searchInput, setSearchInput] = useState('')
 
   const getSearchInput = (val) => {
-    console.log(val)
+    setSearchInput(val);
   };
-  
-  useEffect(() => {
 
+  useEffect(() => {
     const httpRequest = async() => {
-      const response = await fetch('https://inshorts.deta.dev/news?category=');
+      const response = await fetch(`https://inshorts.deta.dev/news?category=${searchInput}`);
+      
       const {data} = await response.json();
 
       if (!response.ok) {
@@ -31,7 +32,7 @@ function App() {
     } catch (error) {
       console.log(error.message)
     }
-  }, [])
+  }, [searchInput])
 
   return (
     <Fragment>
@@ -40,7 +41,7 @@ function App() {
         <SlideBar data={newsData} />
         <div>
           <MainDisplay />
-          <Results onClick={getSearchInput} />
+          <Results data={newsData} onClick={getSearchInput} />
         </div>
         <Biz />
       </main>
