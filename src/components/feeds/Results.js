@@ -1,5 +1,4 @@
 import classes from './Results.module.css';
-import Category from '../category/Category';
 import { useState } from 'react';
 
 const Results = props => {
@@ -31,7 +30,6 @@ const Results = props => {
     <div className={classes.titleBar}>
       <h2>latest post</h2>
     </div>
-    <Category onClick={props.onClick} />
     <ul className={classes.search}>
       {searchResult.map(res => {
         return <li key={res.id}>
