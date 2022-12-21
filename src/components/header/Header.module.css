@@ -71,3 +71,35 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.cat {
+  margin: 20px auto;
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+}
+.cat label, .cat input {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(103, 99, 99);
+  accent-color: rgb(103, 99, 99);
+}
+
+.cat label {
+  margin-left: 2px;
+}
+
+.cat input {
+  margin-left: 9px;
+}
+
+@media screen and (min-width: 720px) {
+  .cat label {
+    margin-left: 3px;
+  }
+
+  .cat input {
+    margin-left: 15px;
+  }
+}

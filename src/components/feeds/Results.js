@@ -15,7 +15,6 @@ const Results = props => {
   console.log(searchResult)
 
   const numberOfPages = Math.ceil(searchResult.length / 5);
-  console.log(numberOfPages)
 
   searchResult = searchResult.slice((pageNumber - 1) * 5 , (pageNumber * 5) - 1)
 

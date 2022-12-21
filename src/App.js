@@ -8,15 +8,15 @@ import Header from "./components/header/Header";
 
 function App() {
   const [newsData, getNewsData] = useState([]);
-  const [searchInput, setSearchInput] = useState('')
+  const [category, setCategory] = useState('')
 
-  const getSearchInput = (val) => {
-    setSearchInput(val);
+  const getNewsCategory = (val) => {
+    setCategory(val);
   };
 
   useEffect(() => {
     const httpRequest = async() => {
-      const response = await fetch(`https://inshorts.deta.dev/news?category=${searchInput}`);
+      const response = await fetch(`https://inshorts.deta.dev/news?category=${category}`);
       
       const {data} = await response.json();
 
@@ -30,16 +30,16 @@ function App() {
     } catch (error) {
       console.log(error.message)
     }
-  }, [searchInput])
+  }, [category])
 
   return (
     <Fragment>
-      <Header />
+      <Header onClick={getNewsCategory} />
       <main>
         <SlideBar data={newsData} />
         <div>
           <MainDisplay />
-          <Results data={newsData} onClick={getSearchInput} />
+          <Results data={newsData} />
         </div>
         <Biz />
       </main>
