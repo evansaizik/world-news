@@ -8,14 +8,13 @@ const Results = props => {
       id: res.id,
       image: res.imageUrl,
       title: res.title,
+      newsUrl: res.url,
     }
   });
 
-  console.log(searchResult)
-
   const numberOfPages = Math.ceil(searchResult.length / 5);
 
-  searchResult = searchResult.slice((pageNumber - 1) * 5 , (pageNumber * 5) - 1)
+  searchResult = searchResult.slice((pageNumber - 1) * 5 , pageNumber * 5)
 
   const nextPage = () => {
     if (numberOfPages === pageNumber) return;
@@ -30,14 +29,14 @@ const Results = props => {
     <div className={classes.titleBar}>
       <h2>latest post</h2>
     </div>
-    <ul className={classes.search}>
+    <div className={classes.search}>
       {searchResult.map(res => {
-        return <li key={res.id}>
+        return <a href={res.newsUrl} target='_blank' rel='noreferrer' key={res.id}>
         <img className={classes.searchImage} src={res.image} alt='styles' />
         <p>{res.title}</p>
-      </li>
+      </a>
       })}
-    </ul>
+    </div>
     <div className={classes.pagination}>
       {pageNumber !== 1 && <button onClick={prevPage} className={classes['btn-1']}>{`Page ${pageNumber - 1}`}</button>}
       {numberOfPages !== pageNumber && <button onClick={nextPage} className={classes['btn-2']}>{`Page ${pageNumber + 1}`}</button>}
