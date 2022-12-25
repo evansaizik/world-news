@@ -1,7 +1,7 @@
-import classes from './Biz.module.css';
+import classes from './Event.module.css';
 import photo from '../Assets/featured_img3.jpg';
 
-const Biz = () => {
+const Event = () => {
   return <section className={classes.section}>
     <div className={classes.titleBar}>
       <h2>business today</h2>
@@ -31,4 +31,4 @@ const Biz = () => {
   </section>
 };
 
-export default Biz;
+export default Event;

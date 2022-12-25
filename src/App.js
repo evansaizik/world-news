@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import Biz from "./components/business/Biz";
+import Event from "./components/Events/Event";
 import MainDisplay from "./components/feeds/MainDisplay";
 import Results from "./components/feeds/Results";
 import SlideBar from "./components/feeds/SlideBar";
@@ -41,7 +41,7 @@ function App() {
           <MainDisplay />
           <Results data={newsData} />
         </div>
-        <Biz />
+        <Event />
       </main>
       <Footer />
     </Fragment>

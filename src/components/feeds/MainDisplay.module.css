@@ -23,7 +23,14 @@
 
 @media screen and (min-width: 768px) {
   .section {
-    max-width: 60%;
+    min-width: 60%;
+    height: 500px;
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .section {
+    min-width: 65%;
     height: 500px;
     margin-right: 20px;
   }
