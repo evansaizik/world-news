@@ -1,11 +1,26 @@
 import  classes from './MainDisplay.module.css';
-import photo from '../Assets/featured_img3.jpg'
 
-const MainDisplay = () => {
+const MainDisplay = props => {
+
+  const feeds = props.data.map(data => {
+    return {
+      id: data.id,
+      author: data.author,
+      image: data.imageUrl,
+      title: data.title,
+      Url: data.url,
+      content: data.content,
+    }
+  });
+
   return <section className={classes.section}>
-    <img className={classes.image} src={photo} alt='diagram' />
-    <h2>CBN set to increase tax on all imports with effect from 15th january 2023</h2>
-    <p>Cyril Afolabi</p>
+    {feeds.map(feed => {
+      return <span key={feed.id}>
+        <img className={classes.image} src={feed.image} alt='diagram' />
+        <h2>{feed.title}</h2>
+        <p>{feed.author}</p>
+      </span>
+    })}
   </section>
 };
 
