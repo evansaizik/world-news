@@ -4,6 +4,7 @@ import Spinner from '../UI/Spinner';
 
 const Results = props => {
   const [pageNumber, setPageNumber] = useState(1);
+  const error = props.data.error;
   let searchResult = props.data.newsData.map(res => {
     return {
       id: res.id,
@@ -34,6 +35,7 @@ const Results = props => {
       <h2>latest post</h2>
     </div>
     <div className={classes.search}>
+      {error && <p className={classes.error}>{error}</p>}
       {!isLoading && searchResult.map(res => {
         return <a href={res.newsUrl} target='_blank' rel='noreferrer' key={res.id}>
         <img className={classes.searchImage} src={res.image} alt='styles' />

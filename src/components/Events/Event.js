@@ -4,7 +4,7 @@ import photo from '../Assets/featured_img3.jpg';
 const Event = () => {
   return <section className={classes.section}>
     <div className={classes.titleBar}>
-      <h2>business today</h2>
+      <h2>Upcoming Events</h2>
     </div>
     <section className={classes.biznewslist}>
       <div className={classes.biznews}>
