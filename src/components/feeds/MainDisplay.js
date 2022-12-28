@@ -10,7 +10,7 @@ const MainDisplay = props => {
 
   useEffect(() => {
     setTimeout(() => {
-      next()
+      // next()
     }, 10000)
     return () => { clearTimeout() };
   });
