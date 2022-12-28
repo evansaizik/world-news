@@ -2,6 +2,7 @@ import classes from './Category.module.css';
 
 import icon from '../Assets/searchicon.svg';
 import { useState } from 'react';
+import Button from '../UI/Button';
 
 const Category = props => {
   const [search, setSearch] = useState('');
@@ -18,9 +19,9 @@ const Category = props => {
   return <form onSubmit={submitFormHandler} className={classes.form}>
     <label htmlFor='input' />
     <input id='input' value={search} onChange={getValue} />
-    <button>
-      <img src={icon} width='30px' alt='SVG as a button' />
-    </button>
+    <Button
+      children={<img src={icon} width='30px' alt='SVG as a button' />}
+    />
   </form>
 };
 

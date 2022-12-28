@@ -1,6 +1,7 @@
 import classes from './Results.module.css';
 import { useState } from 'react';
 import Spinner from '../UI/Spinner';
+import Button from '../UI/Button';
 
 const Results = props => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -44,8 +45,8 @@ const Results = props => {
       })}
     </div>
     <div className={classes.pagination}>
-      {pageNumber !== 1 && <button onClick={prevPage} className={classes['btn-1']}>{`Page ${pageNumber - 1}`}</button>}
-      {numberOfPages !== pageNumber && <button onClick={nextPage} className={classes['btn-2']}>{`Page ${pageNumber + 1}`}</button>}
+      {pageNumber !== 1 && <Button onClick={prevPage} className={classes['btn-1']} children={`Page ${pageNumber - 1}`} />}
+      {numberOfPages !== pageNumber && <Button onClick={nextPage} className={classes['btn-2']} children={`Page ${pageNumber + 1}`}/>}
       <span>{`Page ${pageNumber}`}</span>
     </div>
   </section>
