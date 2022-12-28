@@ -9,19 +9,20 @@ const MainDisplay = props => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      next()
+    let timeout = setTimeout(() => {
+      setIndex(index + 1)
     }, 10000)
-    return () => { clearTimeout() };
+
+    return () => { clearTimeout(timeout) };
   });
 
-  function next() {
+  const next = () => {
     if (index === feeds.length - 1) {
       setIndex(0);
       return;
     }
     setIndex(index + 1);
-  };
+  }
 
   function prev() {
     if (index === 0) {
