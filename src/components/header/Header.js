@@ -22,7 +22,7 @@ const Header = props => {
       child: 'Politics',
     },
     {
-      id: 'auto',
+      id: 'automobile',
       child: 'Auto',
     },
     {
