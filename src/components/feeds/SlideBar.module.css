@@ -3,6 +3,7 @@
   background-color: black;
   height: 40px;
   overflow: hidden;
+  isolation: isolate;
 }
 .slider {
   display: flex;

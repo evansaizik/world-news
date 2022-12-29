@@ -21,6 +21,7 @@
 .title::after {
   content: 'News';
   color: rgb(182, 147, 215);
+  isolation: isolate;
 }
 
 .switch {
