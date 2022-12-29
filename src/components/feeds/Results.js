@@ -10,11 +10,11 @@ const Results = props => {
     return {
       id: res.id,
       image: res.imageUrl,
-      title: res.title,
+      title: `${res.title.substring(0, 65)}...`,
       newsUrl: res.url,
     }
   });
-
+  
   const isLoading = props.data.isLoading;
 
   const numberOfPages = Math.ceil(searchResult.length / 5);

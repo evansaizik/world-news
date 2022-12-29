@@ -4,6 +4,7 @@
   height: 40px;
   overflow: hidden;
   isolation: isolate;
+  border-radius: 10px;
 }
 .slider {
   display: flex;

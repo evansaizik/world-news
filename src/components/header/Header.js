@@ -33,6 +33,10 @@ const Header = props => {
       id: 'sports',
       child: 'Sports',
     },
+    {
+      id: 'technology',
+      child: 'Tech',
+    },
   ];
 
   const toggleHandler = () => { darkmode.toggle() };
