@@ -25,6 +25,8 @@
 
 .switch {
   position: relative;
+  left: 16%;
+  bottom: 7px;
   display: inline-block;
   width: 53px;
   border-radius: 34px;
@@ -101,6 +103,16 @@ input:checked + .slider:before {
 
   .cat input {
     margin-left: 15px;
+  }
+  .switch {
+    position: relative;
+    left: 50%;
+    bottom: 7px;
+    display: inline-block;
+    width: 53px;
+    border-radius: 34px;
+    height: 28px;
+    background-color: gray;
   }
 }
 

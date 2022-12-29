@@ -39,7 +39,9 @@ const Results = props => {
       {error && <p className={classes.error}>{error}</p>}
       {!isLoading && searchResult.map(res => {
         return <a href={res.newsUrl} target='_blank' rel='noreferrer' key={res.id}>
-        <img className={classes.searchImage} src={res.image} alt='styles' />
+          <span>
+            <img className={classes.searchImage} src={res.image} alt='styles' />
+          </span>
         <p>{res.title}</p>
       </a>
       })}
