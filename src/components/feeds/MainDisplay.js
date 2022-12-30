@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react';
 import Button from '../UI/Button';
 import rightArrow from '../Assets/arrow-right.svg';
 import leftArrow from '../Assets/arrow-left.svg';
+import Spinner from '../UI/Spinner';
 
 const MainDisplay = props => {
-  const feeds = props.data;
   const [index, setIndex] = useState(0);
+
+  const feeds = props.data.newsData;
+  const isLoading = props.data.isLoading;
 
   useEffect(() => {
     let timeout = setTimeout(() => {
@@ -33,10 +36,11 @@ const MainDisplay = props => {
   };
 
   return <section className={classes.section}>
-    {feeds.map((feed, i) => {
-    return <span 
-    className={index === i? classes.span : classes.hidden} 
-    key={feed.id}>
+    {isLoading && <Spinner className={classes.spinner} />}
+    {!isLoading && feeds.map((feed, i) => {
+      return <span 
+      className={index === i? classes.span : classes.hidden} 
+      key={feed.id}>
       <img className={classes.image} src={feed.imageUrl} alt='diagram' />
       <h2>{feed.title}</h2>
       <p>{feed.author}</p>

@@ -40,6 +40,12 @@
   left: 2%;
 }
 
+.section .spinner {
+  position: absolute;
+  left: 47%;
+  top: 47%;
+}
+
 .section h2, .section p {
   margin: auto;
   position: relative;

@@ -55,7 +55,7 @@ function App() {
       <main>
         <SlideBar data={newsData} />
         <div>
-          <MainDisplay data={newsData} />
+          <MainDisplay data={{newsData, isLoading}} />
           <Results data={{newsData, isLoading, error}} />
         </div>
         <Event />
