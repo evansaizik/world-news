@@ -9,7 +9,7 @@ import Header from "./components/header/Header";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [newsData, getNewsData] = useState([]);
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('');
   const [error, setError] = useState(null)
 
   const getNewsCategory = (val) => {
@@ -47,7 +47,7 @@ function App() {
       });
     };
     httpRequest();
-  }, [category])
+  }, [category]);
 
   return (
     <Fragment>

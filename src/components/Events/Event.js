@@ -2,7 +2,7 @@ import classes from './Event.module.css';
 import photo from '../Assets/featured_img3.jpg';
 import Category from '../category/Category';
 
-const Event = () => {
+const Event = props => {
   return <section className={classes.section}>
     <div className={classes.titleBar}>
       <h2>Upcoming Events</h2>
