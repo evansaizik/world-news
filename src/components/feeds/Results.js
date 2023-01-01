@@ -1,12 +1,20 @@
 import classes from './Results.module.css';
-import { useState } from 'react';
 import Spinner from '../UI/Spinner';
 import Button from '../UI/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { resultActions } from '../../store/store';
 
 const Results = props => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const error = props.data.error;
-  let searchResult = props.data.newsData.map(res => {
+  const dispatch = useDispatch();
+
+  const pagelength = useSelector(state => state.result.pagelength);
+  const currentPage = useSelector(state => state.result.currentPage);
+  const isLoading = useSelector(state => state.status.isLoading);
+  const error = useSelector(state => state.status.error);
+
+  const page = useSelector(state => state.result.data)
+  .slice((currentPage - 1) * 5 , currentPage * 5)
+  .map(res => {
     return {
       id: res.id,
       image: res.imageUrl,
@@ -15,19 +23,11 @@ const Results = props => {
     }
   });
   
-  const isLoading = props.data.isLoading;
-
-  const numberOfPages = Math.ceil(searchResult.length / 5);
-
-  searchResult = searchResult.slice((pageNumber - 1) * 5 , pageNumber * 5)
-
   const nextPage = () => {
-    if (numberOfPages === pageNumber) return;
-    setPageNumber(pageNumber + 1);
+    dispatch(resultActions.nextPage());
   };
   const prevPage = () => {
-    if(pageNumber === 1) return ;
-    setPageNumber(pageNumber - 1);
+    dispatch(resultActions.prevPage());
   };
 
   return <section className={classes.results}>
@@ -37,7 +37,7 @@ const Results = props => {
     </div>
     <div className={classes.search}>
       {error && <p className={classes.error}>{error}</p>}
-      {!isLoading && searchResult.map(res => {
+      {!isLoading && page.map(res => {
         return <a href={res.newsUrl} target='_blank' rel='noreferrer' key={res.id}>
           <span>
             <img className={classes.searchImage} src={res.image} alt='styles' />
@@ -47,9 +47,9 @@ const Results = props => {
       })}
     </div>
     <div className={classes.pagination}>
-      {pageNumber !== 1 && <Button onClick={prevPage} className={classes['btn-1']} children={`Page ${pageNumber - 1}`} />}
-      {numberOfPages !== pageNumber && <Button onClick={nextPage} className={classes['btn-2']} children={`Page ${pageNumber + 1}`}/>}
-      <span>{`Page ${pageNumber}`}</span>
+      {currentPage !== 1 && <Button onClick={prevPage} className={classes['btn-1']} children={`Page ${currentPage - 1}`} />}
+      {pagelength !== currentPage && <Button onClick={nextPage} className={classes['btn-2']} children={`Page ${currentPage + 1}`}/>}
+      <span>{`Page ${currentPage}`}</span>
     </div>
   </section>
 };

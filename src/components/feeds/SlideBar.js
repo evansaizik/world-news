@@ -1,8 +1,9 @@
+import { useSelector } from 'react-redux';
 import classes from './SlideBar.module.css';
 
 const SlideBar = props => {
-
-  const headlines = props.data.map(data => {
+  const headlines = useSelector(state => state.result.data)
+  .map(data => {
     return {
       id: data.id,
       title: data.title,

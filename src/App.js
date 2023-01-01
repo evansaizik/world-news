@@ -5,58 +5,29 @@ import Results from "./components/feeds/Results";
 import SlideBar from "./components/feeds/SlideBar";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import httpRequest from "./store/httprequest";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [newsData, getNewsData] = useState([]);
   const [category, setCategory] = useState('');
-  const [error, setError] = useState(null)
+  const dispatch = useDispatch();
 
   const getNewsCategory = (val) => {
     setCategory(val);
   };
 
   useEffect(() => {
-    setError(null);
-    setIsLoading(true);
-    const httpRequest = async() => {
-      try {
-        const response = await Promise.race([fetch(`https://inshorts.deta.dev/news?category=${category}`), timeout(10)]);
-        if (!response.ok) {
-          throw new Error('Something went wrong')
-        }
-        
-        const {data} = await response.json();
-
-        if (data.length > 0) {
-          getNewsData(data);
-        } else {
-          setError('No search found!');
-        }
-      } catch (error) {
-        setError(error.message);
-      }
-      setIsLoading(false);
-    }
-
-    const timeout = function (s) {
-      return new Promise((_, reject) => {
-        return setTimeout(() => {
-          reject(new Error('Request Timed out: Request took too long!'));
-        }, s * 1000);
-      });
-    };
-    httpRequest();
-  }, [category]);
-
+    dispatch(httpRequest(category));
+  }, [category, dispatch]);
+  
   return (
     <Fragment>
       <Header onClick={getNewsCategory} />
       <main>
-        <SlideBar data={newsData} />
+        <SlideBar />
         <div>
-          <MainDisplay data={{newsData, isLoading}} />
-          <Results data={{newsData, isLoading, error}} />
+          <MainDisplay />
+          <Results />
         </div>
         <Event />
       </main>

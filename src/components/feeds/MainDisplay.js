@@ -1,51 +1,46 @@
 import  classes from './MainDisplay.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Button from '../UI/Button';
 import rightArrow from '../Assets/arrow-right.svg';
 import leftArrow from '../Assets/arrow-left.svg';
 import Spinner from '../UI/Spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import { displayActions } from '../../store/displaySlice';
 
 const MainDisplay = props => {
-  const [index, setIndex] = useState(0);
+  const dispatch = useDispatch();
 
-  const feeds = props.data.newsData;
-  const isLoading = props.data.isLoading;
-
+  const feeds = useSelector(state => state.display.data);
+  const displayIndex = useSelector(state => state.display.displayIndex);
+  const isLoading = useSelector(state => state.status.isLoading);
+  
   useEffect(() => {
     let timeout = setTimeout(() => {
-      next();
+      dispatch(displayActions.next());
     }, 10000)
-
+    
     return () => { clearTimeout(timeout) };
   });
-
-  const next = () => {
-    if (index === feeds.length - 1) {
-      setIndex(0);
-      return;
-    }
-    setIndex(index + 1);
+  
+  const nextShow = () => {
+    dispatch(displayActions.next());
   }
 
-  function prev() {
-    if (index === 0) {
-      setIndex(feeds.length - 1);
-      return;
-    } 
-    setIndex(index - 1);
+  function prevShow() {
+    dispatch(displayActions.prev());
   };
 
   return <section className={classes.section}>
     {isLoading && <Spinner className={classes.spinner} />}
     {!isLoading && feeds.map((feed, i) => {
       return <span 
-      className={index === i? classes.span : classes.hidden} 
+      className={displayIndex === i? classes.span : classes.hidden} 
       key={feed.id}>
       <img className={classes.image} src={feed.imageUrl} alt='diagram' />
       <h2>{feed.title}</h2>
       <p>{feed.author}</p>
-      <Button onClick={next} className={classes['btn-right']} children={<img className={classes.right} src={rightArrow} alt='right arrow button' />} />
-      <Button onClick={prev} className={classes['btn-left']} children={<img className={classes.left} src={leftArrow} alt='left arrow button' />} />
+      <Button onClick={nextShow} className={classes['btn-right']} children={<img className={classes.right} src={rightArrow} alt='right arrow button' />} />
+      <Button onClick={prevShow} className={classes['btn-left']} children={<img className={classes.left} src={leftArrow} alt='left arrow button' />} />
     </span>})}
   </section>
 };
