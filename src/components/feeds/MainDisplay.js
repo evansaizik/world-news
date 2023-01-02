@@ -18,10 +18,10 @@ const MainDisplay = props => {
     let timeout = setTimeout(() => {
       dispatch(displayActions.next());
     }, 10000)
-    
+
     return () => { clearTimeout(timeout) };
   });
-  
+
   const nextShow = () => {
     dispatch(displayActions.next());
   }
