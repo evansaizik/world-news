@@ -38,6 +38,7 @@
   margin: 0;
   height: 80%;
   isolation: isolate;
+  border: none;
   border-radius: 15px;
 }
 
