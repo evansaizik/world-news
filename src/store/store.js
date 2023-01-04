@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import displaySlice from "./displaySlice";
-import statusSlice from "./status";
+import statusSlice from "./statusSlice";
+import sportsSlice from "./sportsSlice";
+
 const initialState = {
   data: [],
   currentPage: 1,
@@ -41,7 +43,7 @@ const store = configureStore({
     result: resultSlice.reducer,
     display: displaySlice.reducer,
     status: statusSlice.reducer,
-
+    sports: sportsSlice.reducer,
   }
 });
 

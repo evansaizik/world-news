@@ -1,34 +1,36 @@
 import classes from './Event.module.css';
-import photo from '../Assets/featured_img3.jpg';
-import Category from '../category/Category';
+import { useSelector } from 'react-redux';
 
 const Event = props => {
+  const sports = useSelector(state => state.sports.data).slice(0, 16).map(event => {
+    return {
+      Title: event.title,
+      id: event.videos[0].id,
+      title:event.videos[0].title,
+      source: event.videos[0].embed.slice(106, 306),
+    }
+  })
+
   return <section className={classes.section}>
     <div className={classes.titleBar}>
-      <h2>Upcoming Events</h2>
+      <h2>Football Highlights</h2>
     </div>
-    <Category />
-    <section className={classes.biznewslist}>
-      <div className={classes.biznews}>
-        <img src={photo} alt='news-pic' />
-        <h3>business News</h3>
-        <p>Oil price reaches a new monthly high.Oil price reaches a new monthly highOil price reaches a new monthly highOil </p>
-      </div>
-      <div className={classes.biznews}>
-        <img src={photo} alt='news-pic' />
-        <h3>business News</h3>
-        <p>Oil price reaches a new monthly high.Oil price reaches a new monthly highOil price reaches a new monthly highOil </p>
-      </div>
-      <div className={classes.biznews}>
-        <img src={photo} alt='news-pic' />
-        <h3>business News</h3>
-        <p>Oil price reaches a new monthly high.Oil price reaches a new monthly highOil price reaches a new monthly highOil </p>
-      </div>
-      <div className={classes.biznews}>
-        <img src={photo} alt='news-pic' />
-        <h3>business News</h3>
-        <p>Oil price reaches a new monthly high.Oil price reaches a new monthly highOil price reaches a new monthly highOil </p>
-      </div>
+    {/* <Category /> */}
+    <section className={classes.sportslist}>
+      {sports.map( sport => {
+        return <div className={classes.sport} key={sport.id}>
+          <iframe
+          src={sport.source}
+          title={sport.title}
+          width='100%'
+          height='100%'
+          allowFullScreen
+          value='sameorigin'
+          />
+          <h3>{sport.Title}</h3>
+        </div>
+      })}
+      {/* <p>Oil price reaches a new monthly high.Oil price reaches a new monthly highOil price reaches a new monthly highOil </p> */}
     </section>
   </section>
 };

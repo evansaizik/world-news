@@ -7,6 +7,7 @@
   height: 30px;
   background-color: black;
   color: aliceblue;
+  margin-bottom: 50px;
 }
 
 .titleBar h2 {
@@ -20,102 +21,51 @@
   bottom: 10px;
 }
 
-.biznews {
+.sportslist {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.sport {
   display: flex;
   flex-direction: column;
-  margin: 40px auto;
-  padding-bottom: 20px;
-  width: 350px;
-  height: 370px;
-  box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
+  height: 220px;
+  justify-content: flex-start;
 }
 
-.biznewslist {
-  display: flex;
-  flex-wrap: wrap;
+.sport iframe {
+  margin: 0;
+  height: 80%;
+  isolation: isolate;
+  border-radius: 15px;
 }
 
-.biznews img {
-  width: 100%;
-  height: 250px;
-}
-
-.biznews h3 {
-  margin-top: 5px;
+.sport h3 {
   font-size: 1.3rem;
-  padding: 10px;
+  padding: 1px 5px;
+  text-align: center;
 }
 
-.biznews p {
+.sport p {
   font-size: 1rem;
   padding: 8px;
   max-height: 50px;
   overflow: hidden;
 }
 
-@media screen and (min-width: 670px) {
-  .biznews {
-    display: flex;
-    flex-direction: column;
-    margin: 40px auto;
-    padding-bottom: 20px;
-    width: 280px;
-    height: 370px;
-    box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
+@media screen and (min-width: 520px) {
+  .sportslist {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 768px) {
-  .biznews {
-    display: flex;
-    flex-direction: column;
-    margin: 40px auto;
-    padding-bottom: 20px;
-    width: 330px;
-    height: 370px;
-    box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
+  .sportslist {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 830px) {
-  .biznews {
-    display: flex;
-    flex-direction: column;
-    margin: 40px auto;
-    padding-bottom: 20px;
-    width: 380px;
-    height: 400px;
-    box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
-  }
-}
-@media screen and (min-width: 1000px) {
-  .biznews {
-    display: flex;
-    flex-direction: column;
-    margin: 40px auto;
-    padding-bottom: 20px;
-    width: 500px;
-    height: 450px;
-    box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
-  }
-}
-@media screen and (min-width: 1200px) {
-  .biznews {
-    display: flex;
-    flex-direction: column;
-    margin: 40px auto;
-    padding-bottom: 20px;
-    width: 23%;
-    height: 370px;
-    box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
-  }
-}
-@media screen and (min-width: 1400px) {
-  .biznews {
-    display: flex;
-    flex-direction: column;
-    margin: 40px auto;
-    padding-bottom: 20px;
-    width: 330px;
-    height: 370px;
-    box-shadow: 0px 1px 5px 3px rgb(203, 201, 201);
+  .sportslist {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

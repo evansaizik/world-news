@@ -5,7 +5,7 @@ import Results from "./components/feeds/Results";
 import SlideBar from "./components/feeds/SlideBar";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import httpRequest from "./store/httprequest";
+import httpRequest, { httpRequests } from "./store/httprequest";
 import { useDispatch } from "react-redux";
 
 function App() {
@@ -15,6 +15,10 @@ function App() {
   const getNewsCategory = (val) => {
     setCategory(val);
   };
+
+  useEffect(() => {
+    dispatch(httpRequests());
+  })
 
   useEffect(() => {
     dispatch(httpRequest(category));
