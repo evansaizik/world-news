@@ -30,7 +30,6 @@ const Event = props => {
           <h3>{sport.Title}</h3>
         </div>
       })}
-      {/* <p>Oil price reaches a new monthly high.Oil price reaches a new monthly highOil price reaches a new monthly highOil </p> */}
     </section>
   </section>
 };
